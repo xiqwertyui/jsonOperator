@@ -1,10 +1,7 @@
 import os
 import json
-import subprocess
 
 # https://stackoverflow.com/questions/8689964/why-do-some-functions-have-underscores-before-and-after-the-function-name
-
-
 
 class jsonRW:
     def __init__(self, jsonPath = None) -> None:
