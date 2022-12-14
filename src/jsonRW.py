@@ -17,7 +17,7 @@ class jsonRW:
         self.quitPrompt = ['q']
         self.javascriptPath = globals()['__file__'].replace(os.path.basename(globals()['__file__']), 'jsonPrintPretty.js')
         self.jsonPath = jsonPath
-        if jsonPath == None:
+        if jsonPath == None or not os.path.isfile(jsonPath):
             self.jsonPath = self.pathConfig()
 
 
@@ -77,12 +77,10 @@ class jsonRW:
        
 
     def viewJsonPretty(self):
-        proc = subprocess.Popen(["node", "-v"], stdout=subprocess.PIPE, shell=True)
-        (out, err) = proc.communicate()
-        if out != b'':
-            os.system('node {} {}'.format(self.javascriptPath, self.jsonPath))
-        else:
-            self.colorfulPrint('You computer is not support viewJsonPretty, please install nodejs first', 91)
+        jsonContent = self.readJson()
+        print('KEY','|', 'VALUE')
+        for key in jsonContent:
+            print(key,'--->',jsonContent[key])
 
     def usage(self):
         pass
