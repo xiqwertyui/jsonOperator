@@ -8,6 +8,7 @@ class jsonRW:
         self.readAllPrompt = ['readAll', 'print', 'viewAll']
         self.readAllPrettyPrompt = ['readAllPretty', 'printPretty', 'viewAllPretty']
         self.writePrompt = ['write', 'add']
+        self.deletePrompt = ['del', 'delete']
         self.helpPrompt = ['help']
         self.quitPrompt = ['q']
         self.javascriptPath = globals()['__file__'].replace(os.path.basename(globals()['__file__']), 'jsonPrintPretty.js')
@@ -95,6 +96,10 @@ class jsonRW:
                 key = input('NEW KEY: ')
                 value = input('NEW VALUE: ')
                 self.addEntry(key, value)
+                self.viewJson()
+            elif prompt in self.deletePrompt:
+                key = input('DELETE ENTRY KEY: ')
+                self.deleteEntry(key)
                 self.viewJson()
             elif prompt in self.readAllPrompt:
                 self.viewJson()
