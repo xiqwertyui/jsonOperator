@@ -82,18 +82,18 @@ class jsonRW:
 
     def prompt(self):
         while True:
-            prompt = input('Prompt: ')
+            prompt = input('PROMPT: ')
             if prompt in self.quitPrompt:
                 exit()
             elif prompt in self.initPrompt:
                 self.clearEntry()
                 self.viewJson()
             elif prompt in self.readPrompt:
-                key = input('KEY: ')
+                key = input('VIEW KEY: ')
                 self.viewEntry(key)
             elif prompt in self.writePrompt:
-                key = input('KEY: ')
-                value = input('VALUE: ')
+                key = input('NEW KEY: ')
+                value = input('NEW VALUE: ')
                 self.addEntry(key, value)
                 self.viewJson()
             elif prompt in self.readAllPrompt:
