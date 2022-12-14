@@ -1,5 +1,4 @@
 import os
-import os
 import json
 
 class jsonRW:
@@ -59,25 +58,24 @@ class jsonRW:
     def viewEntry(self, key):
         jsonContent = self.readJson()
         try:
-            print(key)
-            print(jsonContent[key])
+            self.colorfulPrint(str(jsonContent[key]), 92)
         except KeyError:
             self.colorfulPrint('no such key', 91)
         except Exception as err:
-            print(err)
+            self.colorfulPrint(str(err), 91)
         
     def viewJson(self):
         jsonContent = self.readJson()
         try:
-            print(jsonContent)
+            self.colorfulPrint(str(jsonContent), 92)
         except Exception as err:
-            print(err)
+            self.colorfulPrint(str(err), 91)
        
     def viewJsonPretty(self):
         jsonContent = self.readJson()
-        print('KEY','|', 'VALUE')
+        self.colorfulPrint('------[KEY'+' |'+' VALUE]------\n',92)
         for key in jsonContent:
-            print(key,'--->',jsonContent[key])
+            self.colorfulPrint(str(key)+' ---> '+str(jsonContent[key]),92)
 
     def usage(self):
         pass
