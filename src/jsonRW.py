@@ -17,7 +17,6 @@ class jsonRW:
         if jsonPath == None or not os.path.isfile(jsonPath):
             self.jsonPath = self.pathConfig()
 
-
     def colorfulPrint(self, msg, colorDigit):
         print('\033[{}m'.format(colorDigit)+msg+'\033[0m')
 
@@ -72,7 +71,6 @@ class jsonRW:
         except Exception as err:
             print(err)
        
-
     def viewJsonPretty(self):
         jsonContent = self.readJson()
         print('KEY','|', 'VALUE')
