@@ -1,7 +1,6 @@
 import os
+import os
 import json
-
-# https://stackoverflow.com/questions/8689964/why-do-some-functions-have-underscores-before-and-after-the-function-name
 
 class jsonRW:
     def __init__(self, jsonPath = None) -> None:
@@ -60,7 +59,10 @@ class jsonRW:
     def viewEntry(self, key):
         jsonContent = self.readJson()
         try:
+            print(key)
             print(jsonContent[key])
+        except KeyError:
+            self.colorfulPrint('no such key', 91)
         except Exception as err:
             print(err)
         
@@ -109,5 +111,5 @@ class jsonRW:
         self.prompt()
 
 if __name__ == '__main__':
-    controler = jsonRW('../target.json')
+    controler = jsonRW('./target.json')
     controler.main()
