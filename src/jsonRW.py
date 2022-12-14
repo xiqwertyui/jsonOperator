@@ -98,7 +98,6 @@ class jsonRW:
             elif prompt in self.readPrompt:
                 key = input('KEY: ')
                 self.viewEntry(key)
-                self.viewJson()
             elif prompt in self.writePrompt:
                 key = input('KEY: ')
                 value = input('VALUE: ')
